@@ -1,6 +1,8 @@
 from get_contributions import get_contributions
 from datetime import datetime
 
+this_year = datetime.today().year
+
 def get_average_of_contributions(contributions):
   total = 0
   for contribution in contributions:
@@ -26,8 +28,6 @@ def get_accumulated_total_contributions_for_this_year(contributions_until_today)
   number_of_contributions_until_today = get_total_contributions(contributions_until_today)
   return 365 * number_of_contributions_until_today / number_of_days_passed
 
-this_year = datetime.today().year
-
 years = [2017, 2018, 2019, 2020, 2021, 2022]
 average_of_years = []
 total_of_years = []
@@ -48,9 +48,6 @@ for year in years:
     total_contributions = get_total_contributions(contributions)
     total_of_years.append(total_contributions)
 
-print(average_of_years)
-print(total_of_years)
-
 def format(value):
   return '{:2f}'.format(value).rstrip('0').rstrip('.')
 
@@ -69,3 +66,5 @@ for index, count in enumerate(total_of_years):
 
   prev_count = count
   prev_average = average
+
+print(datetime.today())
