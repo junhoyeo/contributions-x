@@ -10,7 +10,6 @@ def build_api_url(username: str, year: int):
 def get_contributions(username: str, year: int):
   api_url = build_api_url(username, year)
   html = httpx.get(api_url).text
-  print(html)
 
   soup = bs4.BeautifulSoup(html, 'html.parser')
   rects = soup.find_all('rect', class_='ContributionCalendar-day')
